@@ -240,7 +240,7 @@ main {
 
 /* Welcome component */
 
-.welcome__container {
+.home__container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -286,7 +286,7 @@ main {
 }
 
 @media (min-width: 575px) {
-  .welcome__container {
+  .home__container {
     width: 100%;
   }
 

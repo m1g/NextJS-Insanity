@@ -4,9 +4,22 @@ import groq from 'groq'
 import { type SanityClient } from 'next-sanity'
 
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
+export const servicesQuery =  groq`*[_type == "service"]{
+  _id,
+  _createdAt,
+  name,
+  "slug": slug.current,
+  "image": image.asset->url,
+  url,
+  content,
+}`
 
 export async function getPosts(client: SanityClient): Promise<Post[]> {
   return await client.fetch(postsQuery)
+}
+
+export async function getServices(client: SanityClient) {
+  return await client.fetch(servicesQuery)
 }
 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]`
@@ -33,4 +46,14 @@ export interface Post {
   excerpt?: string
   mainImage?: ImageAsset
   body: PortableTextBlock[]
+}
+
+export interface Service {
+  _id: string
+  _createdAt: string
+  name?: string
+  slug: Slug
+  image?: ImageAsset
+  url?: string
+  content?: PortableTextBlock[]
 }
