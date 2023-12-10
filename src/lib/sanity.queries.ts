@@ -53,7 +53,7 @@ export interface Service {
   _createdAt: string
   name?: string
   slug: Slug
-  image?: ImageAsset
+  image?: string
   url?: string
   content?: PortableTextBlock[]
 }
