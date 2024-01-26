@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import MenuIcon from '../icons/Menu'
+import Mail from "~/icons/Mail";
+import Instagram from "~/icons/Instagram";
 
 
 export default function Navbar() {
@@ -30,28 +32,20 @@ export default function Navbar() {
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
-                <a
+                <Link
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
+                  href="https://www.instagram.com/10flowersyoga/"
                 >
-                  <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Share</span>
-                </a>
+                  <Instagram alt="FontAwesome Mail Icon" className="w-6 h-6 text-white" /><span className="ml-2">Community</span>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
+                  href="mailto:10yogaflowers@gmail.com"
                 >
-                  <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Tweet</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
-                  <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Pin</span>
-                </a>
+                  <Mail alt="FontAwesome Mail Icon" className="w-6 h-6 text-white" /><span className="ml-2">Contact</span>
+                </Link>
               </li>
             </ul>
           </div>

@@ -23,6 +23,7 @@ export async function getServices(client: SanityClient) {
 }
 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]`
+export const serviceBySlugQuery = groq`*[_type == "service" && slug.current == $slug][0]`
 
 export async function getPost(
   client: SanityClient,
@@ -33,8 +34,20 @@ export async function getPost(
   })
 }
 
+export async function getService(
+  client: SanityClient,
+  slug: string,
+): Promise<Service> {
+  return await client.fetch(serviceBySlugQuery, {
+    slug,
+  })
+}
+
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
+`
+export const serviceSlugsQuery = groq`
+*[_type == "service" && defined(slug.current)][].slug.current
 `
 
 export interface Post {
