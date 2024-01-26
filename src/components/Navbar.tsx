@@ -1,8 +1,10 @@
-import React from "react";
 import Link from "next/link";
-import MenuIcon from '../icons/Menu'
-import Mail from "~/icons/Mail";
+import React from "react";
+
 import Instagram from "~/icons/Instagram";
+import Mail from "~/icons/Mail";
+
+import MenuIcon from '../icons/Menu'
 
 
 export default function Navbar() {

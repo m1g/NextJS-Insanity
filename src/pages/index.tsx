@@ -1,15 +1,15 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useLiveQuery } from 'next-sanity/preview'
 
-import Navbar from '~/components/Navbar'
 import Card from '~/components/Card'
 import Container from '~/components/Container'
+import HeroSection from '~/components/HeroSection'
+import Navbar from '~/components/Navbar'
 import Services from '~/components/Services'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import { getPosts, type Post, type Service, postsQuery, getServices, servicesQuery } from '~/lib/sanity.queries'
+import { getPosts, getServices, type Post, postsQuery, type Service, servicesQuery } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
-import HeroSection from '~/components/HeroSection'
 
 export const getStaticProps: GetStaticProps<
   SharedPageProps & {

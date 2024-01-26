@@ -1,19 +1,20 @@
-import { getClient } from '~/lib/sanity.client'
-import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { PortableText } from '@portabletext/react'
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import Image from 'next/image'
 import { useLiveQuery } from 'next-sanity/preview'
+
+import Container from '~/components/Container'
+import Navbar from '~/components/Navbar'
+import { readToken } from '~/lib/sanity.api'
+import { getClient } from '~/lib/sanity.client'
+import { urlForImage } from '~/lib/sanity.image'
 import {
   getService,
   type Service,
   serviceBySlugQuery,
   serviceSlugsQuery,
 } from '~/lib/sanity.queries'
-import { readToken } from '~/lib/sanity.api'
 import type { SharedPageProps } from '~/pages/_app'
-import Image from 'next/image'
-import { urlForImage } from '~/lib/sanity.image'
-import Container from '~/components/Container'
-import Navbar from '~/components/Navbar'
 
 
 interface Query {
