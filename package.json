@@ -14,7 +14,7 @@
     "singleQuote": true
   },
   "dependencies": {
-    "@portabletext/react": "3.0.11",
+    "@portabletext/react": "^3.0.11",
     "@sanity/client": "6.8.6",
     "@sanity/demo": "1.0.2",
     "@sanity/vision": "3.20.0",
@@ -37,7 +37,7 @@
     "prettier": "3.1.0",
     "prettier-plugin-packagejson": "2.4.6",
     "prettier-plugin-tailwindcss": "0.5.7",
-    "tailwindcss": "3.3.5",
+    "tailwindcss": "^3.3.6",
     "typescript": "5.2.2"
   },
   "engines": {

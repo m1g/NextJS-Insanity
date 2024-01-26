@@ -32,8 +32,9 @@ const iframeOptions = {
 
 export default defineConfig({
   basePath: '/studio',
-  name: 'project-name',
-  title: 'Project Name',
+  name: 'project-blade',
+  title: 'Project Blade',
+  apiVersion,
   projectId,
   dataset,
   //edit schemas in './src/schemas'
