@@ -13,6 +13,14 @@ export const servicesQuery =  groq`*[_type == "service"]{
   url,
   content,
 }`
+export const heroesQuery =  groq`*[_type == "hero"]{
+  _id,
+  _createdAt,
+  event,
+  "slug": slug.current,
+  "image": image.asset->url,
+  content,
+}`
 
 export async function getPosts(client: SanityClient): Promise<Post[]> {
   return await client.fetch(postsQuery)
@@ -20,6 +28,10 @@ export async function getPosts(client: SanityClient): Promise<Post[]> {
 
 export async function getServices(client: SanityClient) {
   return await client.fetch(servicesQuery)
+}
+
+export async function getHeroes(client: SanityClient): Promise<Hero[]> {
+  return await client.fetch(heroesQuery)
 }
 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]`
@@ -65,6 +77,16 @@ export interface Service {
   _id: string
   _createdAt: string
   name?: string
+  slug: Slug
+  image?: string
+  url?: string
+  content?: PortableTextBlock[]
+}
+
+export interface Hero {
+  _id: string
+  _createdAt: string
+  event?: string
   slug: Slug
   image?: string
   url?: string

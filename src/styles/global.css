@@ -51,6 +51,9 @@
   --gray-600: #6e7683;
   --blue-600: #1e61cd;
   --magenta-100: #f9d7eb;
+  --main-accent: #437095;
+  --main-base: #182e6a;
+  --secondary-base: #ffe59a;
 
   --max-width-0: 320px;
   --max-width-1: 768px;
@@ -170,13 +173,9 @@ body {
 }
 
 /* Layout */
-.container {
-  margin: 0 auto;
-  padding: 0 1rem;
-}
 
 main {
-  margin-top: 45px;
+  margin-top: 100px;
 }
 
 .header {
@@ -262,12 +261,6 @@ main {
 .steps .steps__text a {
   color: var(--blue-600);
   text-decoration: none;
-}
-
-@media only screen and (min-width: 640px) {
-  .container {
-    padding: 0;
-  }
 }
 
 @media (min-width: 575px) {
@@ -424,4 +417,22 @@ main {
     max-width: 366.5px;
     max-height: 231px;
   }
+}
+
+/** USER SET STYLES **/
+.nav {
+  background-color:  var(--main-accent);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.nav .nav-logo {
+  width: 50px;
+  border: 2px solid var(--secondary-base); 
+  border-radius: 25px;
+}
+
+.hero {
+  background-color: var(--main-base);
 }

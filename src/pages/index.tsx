@@ -8,25 +8,38 @@ import Navbar from '~/components/Navbar'
 import Services from '~/components/Services'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import { getPosts, getServices, type Post, postsQuery, type Service, servicesQuery } from '~/lib/sanity.queries'
+import { 
+  getPosts, 
+  getServices,
+  getHeroes, 
+  type Post, 
+  postsQuery, 
+  type Service, 
+  servicesQuery,
+  type Hero,
+  heroesQuery, 
+} from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 
 export const getStaticProps: GetStaticProps<
   SharedPageProps & {
     posts: Post[],
-    services: Service[]
+    services: Service[],
+    heroes: Hero[]
   }
 > = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
   const posts = await getPosts(client)
   const services = await getServices(client);
+  const heroes = await getHeroes(client);
 
   return {
     props: {
       draftMode,
       token: draftMode ? readToken : '',
       posts,
-      services
+      services,
+      heroes
     },
   }
 }
@@ -36,10 +49,11 @@ export default function IndexPage(
 ) {
   const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
   const [services] = useLiveQuery(props.services, servicesQuery)
+  const [heroes] = useLiveQuery(props.heroes, heroesQuery)
   return (
     <>
       <Navbar />
-      <HeroSection />
+      <HeroSection heroes={heroes} />
       <Container>
         <section>
           {posts.length ? (
