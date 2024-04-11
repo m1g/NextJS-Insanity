@@ -1,6 +1,6 @@
-import Navbar from "~/components/Navbar";
-import Container from "~/components/Container";
 import ContactForm from "~/components/ContactForm";
+import Container from "~/components/Container";
+import Navbar from "~/components/Navbar";
 
 
 export default function ContactPage(){

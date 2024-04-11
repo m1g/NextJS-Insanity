@@ -1,13 +1,13 @@
 import { PortableText } from '@portabletext/react';
-import Link from 'next/link';
-import styles from '../styles/jsStyles'
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { type Hero } from "~/lib/sanity.queries";
 
+import styles from '../styles/jsStyles'
+
 export default function HeroSection({heroes}: {heroes: Hero[]}){
   const currentHero = heroes[0]
-  console.log('current hero: ', currentHero)
   
   return (
     <section id="home" className={`hero flex md:flex-row flex-col ${styles.paddingY}  ${styles.flexCenter} mt-[67px] lg:mt-[73px]`}>

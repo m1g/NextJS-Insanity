@@ -1,13 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
+import Events from "~/icons/Events";
 import Instagram from "~/icons/Instagram";
 import Mail from "~/icons/Mail";
 import Shop from "~/icons/Shop";
-import Events from "~/icons/Events";
-import logo from "./logo.jpg"
-
 
 import MenuIcon from '../icons/Menu'
+import logo from "./logo.jpg"
 
 
 export default function Navbar() {
@@ -17,7 +18,7 @@ export default function Navbar() {
       <div className="container max-w-5xl mx-auto flex flex-wrap items-center justify-between pl-6 pr-6">
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <Link className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="/">
-            <img className="nav-logo" src={logo.src} alt="site logo" />
+            <Image className="nav-logo" src={logo.src} width={50} height={50} alt="site logo" />
           </Link>
           <button
             className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"

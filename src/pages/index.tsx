@@ -9,15 +9,15 @@ import Services from '~/components/Services'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import { 
+  getHeroes, 
   getPosts, 
   getServices,
-  getHeroes, 
+  type Hero,
+  heroesQuery, 
   type Post, 
   postsQuery, 
   type Service, 
   servicesQuery,
-  type Hero,
-  heroesQuery, 
 } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 
