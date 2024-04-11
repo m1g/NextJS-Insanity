@@ -1,10 +1,9 @@
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
 import Instagram from "~/icons/Instagram";
 import Mail from "~/icons/Mail";
-import { useLiveQuery } from "next-sanity/preview";
-import { urlForImage } from "~/lib/sanity.image";
+import Shop from "~/icons/Shop";
+import Events from "~/icons/Events";
 import logo from "./logo.jpg"
 
 
@@ -40,6 +39,7 @@ export default function Navbar() {
               <Link
                 className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                 href="https://www.instagram.com/10flowersyoga/"
+                target="_blank"
               >
                 <Instagram alt="FontAwesome Mail Icon" className="w-6 h-6 text-white" /><span className="ml-2">Community</span>
               </Link>
@@ -47,7 +47,25 @@ export default function Navbar() {
             <li className="nav-item">
               <Link
                 className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                href="mailto:10yogaflowers@gmail.com"
+                href="https://10flowersyoga.creator-spring.com"
+                target="_blank"
+              >
+                <Shop alt="FontAwesome Shop Icon" className="w-6 h-6 text-white" /><span className="ml-2">Shop</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                href="http://www.eventbrite.com/o/81923064123"
+                target="_blank"
+              >
+                <Events alt="FontAwesome Ticket Icon" className="w-6 h-6 text-white" /><span className="ml-2">Events</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                href="/contact"
               >
                 <Mail alt="FontAwesome Mail Icon" className="w-6 h-6 text-white" /><span className="ml-2">Contact</span>
               </Link>

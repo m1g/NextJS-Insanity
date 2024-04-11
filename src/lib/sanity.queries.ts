@@ -87,7 +87,7 @@ export interface Hero {
   _id: string
   _createdAt: string
   event?: string
-  slug: Slug
+  slug: string
   image?: string
   url?: string
   content?: PortableTextBlock[]

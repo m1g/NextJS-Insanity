@@ -1,44 +1,42 @@
+import { PortableText } from '@portabletext/react';
+import Link from 'next/link';
 import styles from '../styles/jsStyles'
+import Image from 'next/image';
 
 import { type Hero } from "~/lib/sanity.queries";
 
 export default function HeroSection({heroes}: {heroes: Hero[]}){
-  const pink_gradiant = 'bg-gradient-to-r from-pink-300 to-pink-600 filter blur-[900px]'
-  const white_gradiant = 'bg-white bg-opacity-60 filter blur-[750px]'
-  const blue_gradiant = 'bg-gradient-to-t from-transparent via-blue-800 to-transparent filter blur-[123px]'
-  const text_gradient = ' bg-gradient-to-br from-teal-100 via-teal-200 to-teal-500 text-transparent bg-clip-text'
-
+  const currentHero = heroes[0]
+  console.log('current hero: ', currentHero)
+  
   return (
-    <section id="home" className={`hero flex md:flex-row flex-col ${styles.paddingY} mt-[65px]`}>
-      <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6 pt-6`}>
-        <div className="flex flex-row justify-between items-center w-full">
-          <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
-            The Next <br className="sm:block hidden" />{" "}
-            <span className={`${text_gradient}`}>Generation</span>{" "}
-          </h1>
-        </div>
-
+    <section id="home" className={`hero flex md:flex-row flex-col ${styles.paddingY}  ${styles.flexCenter} mt-[67px] lg:mt-[73px]`}>
+      <div className={`flex-1 ${styles.flexStart} flex-col sm:px-16 px-6 pt-6 pb-6`}>
         <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[100.8px] leading-[75px] w-full">
-          Payment Method.
+          {currentHero.event}
         </h1>
-        <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-          Our team of experts uses a methodology to identify the credit cards
-          most likely to fit your needs. We examine annual percentage rates,
-          annual fees.
-        </p>
+        <span className={`${styles.paragraph} max-w-[470px] mt-5 mb-5`}>
+          <PortableText value={currentHero.content} />
+        </span>
         <div className="ss:flex md:mr-4 mr-0">
-          <button>Get Registered</button>
+          <Link href={currentHero.slug} target='_blank'>
+            <button className="hover:shadow-lg focus:outline-none px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none">
+              Get Registered
+            </button>
+          </Link>
+          
         </div>
       </div>
 
-      <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
-        <img src={'https://i.imgur.com/8RJDGMU.png'} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
-
-        {/* gradient start */}
-        <div className={`absolute z-[0] w-[40%] h-[35%] top-0 ${pink_gradiant} `} />
-        <div className={`absolute z-[1] w-[80%] h-[80%] rounded-full ${white_gradiant} bottom-40`} />
-        <div className={`absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 ${blue_gradiant}`} />
-        {/* gradient end */}
+      <div className={`flex-1 flex justify-center md:justify-end md:mb-0 md:mt-0 mt-10 mb-0 relative`}>
+        <Image 
+          className="image w-[90%] h-[90%] relative"
+          src={currentHero.image} 
+          // @ts-ignore
+          alt={currentHero.event}
+          width={750}
+          height={300}
+        />
       </div>
     </section>
   );
